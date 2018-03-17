@@ -9,8 +9,8 @@ app.use(morgan('dev'))
 app.use(bodyParser.json())
 
 const exampleObject = {
-  data: [
-    {
+  data:
+    [{
       id: 1,
       mealName: "Tuna Noodle Casserole",
       mealPic: "./static/TNC.png",
@@ -31,8 +31,29 @@ const exampleObject = {
       i13: "",
       i14: "",
       i15: ""
-    }
-  ]
+    },
+    {
+      id: 2,
+      mealName: "Smuna Kooda Casserbowl",
+      mealPic: "./static/SKC.png",
+      instructionsLink: "http://www.recipes.com/",
+      funIdeas: "Crunch up potato chips and sprinkle them on top.",
+      i1: "8oz Egg Noodles",
+      i2: "5oz Can Tuna",
+      i3: "8oz can Cream of Mushroom Soup",
+      i4: "1/2 cup Milk",
+      i5: "1 cup Frozen Peas",
+      i6: "1/4 tsp Garlic Powder",
+      i7: "1/4 tsp Dried Thyme",
+      i8: "",
+      i9: "",
+      i10: "",
+      i11: "",
+      i12: "",
+      i13: "",
+      i14: "",
+      i15: ""
+    }]
 }
 
 app.get('/', function(req, res) {
