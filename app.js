@@ -8,7 +8,7 @@ const meals = require('./routes/meals')
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 
-app.use('/meals', meals)
+app.use('/meal', meal)
 
 app.use((req, res, next) => {
     const err = new Error("Not Found")

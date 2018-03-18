@@ -68,4 +68,4 @@ exports.seed = function(knex, Promise) {
       }]
       return knex('meals').insert(meal)
     })
-};
+}

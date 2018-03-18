@@ -6,14 +6,13 @@ const queries = require('../queries')
 router.get("/", (request, response, next) => {
     queries.list().then(meals => {
         response.json({meals})
-    })
-    .catch(next)
+    }).catch(next)
 })
 
 router.get("/:id", (request, response, next) => {
     queries.read(request.params.id).then(meals => {
         meals
-            ? response.json({coffee})
+            ? response.json({meals})
             : response.status(404).json({message: 'Not found'})
     }).catch(next);
 });
