@@ -4,16 +4,16 @@ module.exports = {
   list(){
     return database('meals').select()
   },
-  // read(id){
-  //   return database('coffee').where("id", id).first()
-  // },
-  // create(coffees){
-  //   return database('coffee').insert(coffees).returning('*').then(record => record[0])
-  // },
-  // update(id, coffees){
-  //   return database("coffee").update(coffees).where("id", id).returning("*").then(record => record[0])
-  // },
-  // delete(id){
-  //   return database("coffee").delete().where("id", id)
-  // }
+  read(id){
+    return database('meals').where("id", id).first()
+  },
+  create(meal){
+    return database('meals').insert(meal).returning('*').then(record => record[0])
+  },
+  update(id, meal){
+    return database("meals").update(meal).where("id", id).returning("*").then(record => record[0])
+  },
+  delete(id){
+    return database("meals").delete().where("id", id)
+  }
 }
