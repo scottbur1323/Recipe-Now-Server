@@ -1,63 +1,27 @@
 const express = require('express')
+const bodyParser = require('body-parser')
+const morgan = require('morgan')
 const app = express()
-const bodyParser = require("body-parser")
-const morgan = require("morgan")
-const port = parseInt(process.env.PORT || 3000)
+
+const meals = require('./routes/meals')
 
 app.use(morgan('dev'))
-
 app.use(bodyParser.json())
 
-const exampleObject = {
-  data:
-    [{
-      id: 1,
-      mealName: "Tuna Noodle Casserole",
-      mealPic: "./static/TNC.png",
-      instructionsLink: "http://www.recipes.com/",
-      funIdeas: "Crunch up potato chips and sprinkle them on top.",
-      i1: "8oz Egg Noodles",
-      i2: "5oz Can Tuna",
-      i3: "8oz can Cream of Mushroom Soup",
-      i4: "1/2 cup Milk",
-      i5: "1 cup Frozen Peas",
-      i6: "1/4 tsp Garlic Powder",
-      i7: "1/4 tsp Dried Thyme",
-      i8: "",
-      i9: "",
-      i10: "",
-      i11: "",
-      i12: "",
-      i13: "",
-      i14: "",
-      i15: ""
-    },
-    {
-      id: 2,
-      mealName: "Smuna Kooda Casserbowl",
-      mealPic: "./static/SKC.png",
-      instructionsLink: "http://www.recipes.com/",
-      funIdeas: "Crunch up potato chips and sprinkle them on top.",
-      i1: "8oz Egg Noodles",
-      i2: "5oz Can Tuna",
-      i3: "8oz can Cream of Mushroom Soup",
-      i4: "1/2 cup Milk",
-      i5: "1 cup Frozen Peas",
-      i6: "1/4 tsp Garlic Powder",
-      i7: "1/4 tsp Dried Thyme",
-      i8: "",
-      i9: "",
-      i10: "",
-      i11: "",
-      i12: "",
-      i13: "",
-      i14: "",
-      i15: ""
-    }]
-}
+app.use('/meals', meals)
 
-app.get('/', function(req, res) {
-  res.send(exampleObject)
+app.use((req, res, next) => {
+    const err = new Error("Not Found")
+    err.status = 404
+    next(err)
 })
 
-app.listen(port, () => console.log('Example app listening on port 3000!'))
+app.use((err, req, res, next) => {
+    res.status(err.status || 500)
+    res.json({
+      message: err.message,
+      error: req.app.get("env") === "development" ? err.stack : {}
+    })
+})
+
+module.exports = app
