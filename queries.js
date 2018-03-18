@@ -1,4 +1,4 @@
-const database = require("/db/knex.js")
+const database = require("./db/knex.js")
 
 module.exports = {
   list(){
