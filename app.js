@@ -5,7 +5,7 @@ const cors = require('cors')
 const app = express()
 
 const meal = require('./routes/meal')
-const grocer = require('./routes/grocer')
+// const grocer = require('./routes/grocer')
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())
