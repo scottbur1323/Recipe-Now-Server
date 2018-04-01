@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.use('/meal', meal)
-app.use('/grocer', grocer)
+// app.use('/grocer', grocer)
 
 app.use((req, res, next) => {
     const err = new Error("Not Found")
