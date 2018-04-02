@@ -28,6 +28,10 @@
     "express",
     "node.js"
   ],
+  "engines": {
+    "node": "8.9.1",
+    "npm": "5.6.0"
+  },
   "author": "Chance Scott-Burke",
   "license": "MIT"
 }
