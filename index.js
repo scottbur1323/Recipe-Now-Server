@@ -1,6 +1,5 @@
 const app = require("./app")
-const port = parseInt(3000)
 
-app.listen(port)
+app.listen(process.env.PORT || 3000)
   .on('error',     console.error.bind(console))
-  .on('listening', console.log.bind(console, 'Listening on ' + port))
+  .on('listening', console.log.bind(console))

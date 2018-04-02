@@ -4,15 +4,12 @@ const morgan = require('morgan')
 const cors = require('cors')
 const app = express()
 
-const meal = require('./routes/meal')
-const grocer = require('./routes/grocer')
-
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use('/meal', meal)
-app.use('/grocer', grocer)
+app.use('/meal', require('./routes/meal'))
+app.use('/grocer', require('./routes/grocer'))
 
 app.use((req, res, next) => {
     const err = new Error("Not Found")
