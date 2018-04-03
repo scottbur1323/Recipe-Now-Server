@@ -18,9 +18,9 @@ exports.seed = function(knex, Promise) {
         other: 'My Second Favorite Grocer'
       },{
         id: 3,
-        grocerName: 'Fresh Start Produce',
-        grocerPic: 'http://www.freshstartproducetoo.com/WordPress/wp-content/uploads/2016/02/Fresh_Start_Produce_Too-LOGO.png',
-        grocerLink: 'http://www.freshstartproducetoo.com/',
+        grocerName: 'Vitamin Cottage',
+        grocerPic: 'https://static1.squarespace.com/static/581e5ad846c3c40f0614e4c7/t/582b56d7e6f2e1c6c87bdb56/1479235287585/NG+Logo.png',
+        grocerLink: 'https://www.naturalgrocers.com/',
         grocerZip: 80216,
         other: 'Limited selection, but a great community grocer.'
       }]

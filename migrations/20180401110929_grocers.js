@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     table.text('grocerName').notNullable()
     table.text('grocerPic').notNullable()
     table.text('grocerLink').notNullable()
-    table.integer('grocerZip').notNullable()
+    table.integer('grocerZip')
     table.text('other')
   })
 }
